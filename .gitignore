@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# uv (entorno virtual si se usa local)
+.venv/
+.uv/
+
+# Dependencias generadas (uv puede crear archivos de lock)
+uv.lock
+poetry.lock
+Pipfile.lock
+
+# VS Code
+.vscode/
+
+# Archivos de configuración personal
+.env
+*.env
+*.env.*
+
+# Archivos sensibles (como claves API)
+keys.json
+secrets.json
+
+# Archivos temporales
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# Mac / sistema operativo
+.DS_Store
+Thumbs.db
