@@ -1,0 +1,27 @@
+# Core
+openai>=1.0.0
+tqdm
+requests
+
+# Agents / frameworks
+langchain>=0.1.0
+langgraph
+chromadb
+
+# optional
+# llama-index
+# huggingface_hub
+
+# Common dependencies
+python-dotenv
+pydantic
+
+# Development
+ipython
+jupyter
+ipykernel
+
+# Others
+pandas
+numpy
+scikit-learn
