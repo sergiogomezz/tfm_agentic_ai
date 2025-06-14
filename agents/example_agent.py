@@ -1,5 +1,5 @@
 from config.loader import load_keys
-from tools.openai_client import OpenAIClient
+from clients.openai_client import OpenAIClient
 
 class MyAgent:
     def __init__(self):

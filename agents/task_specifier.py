@@ -1,18 +1,15 @@
 import json
 import os
-from config.loader import load_keys
-from tools.openai_client import OpenAIClient
-
+from config.config import PROMPTS_DIR
 
 class TaskSpecifierAgent:
-    def __init__(self, client, model='gpt-4o-mini'):
+    def __init__(self, client):
         self.client = client
         self.system_prompt = self._load_prompt()
 
 
     def _load_prompt(self):
-        prompt_path = os.path.join(os.path.dirname(__file__), '..', 'prompts', 'task_specifier_prompt.txt')
-
+        prompt_path = os.path.join(PROMPTS_DIR, 'example_prompt.txt')
         with open(prompt_path, 'r') as f:
             return f.read()
         
@@ -25,10 +22,12 @@ class TaskSpecifierAgent:
 
         response = self.client.chat(messages)
         
-        try:
-            parsed_output = json.loads(response.strip())
-            return parsed_output
-        except json.JSONDecodeError:
-            print("Warning: Could not parse the response as JSON.")
-            return {"raw_response": response}
+        return response
+    
+        # try:
+        #     parsed_output = json.loads(response.strip())
+        #     return parsed_output
+        # except json.JSONDecodeError:
+        #     print("Warning: Could not parse the response as JSON.")
+        #     return {"raw_response": response}
         
