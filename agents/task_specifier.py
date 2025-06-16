@@ -1,18 +1,12 @@
 import json
 import os
-from config.config import PROMPTS_DIR
+from config.config import AGENT_SPECIFIER_PROMPT
+from config.loader import load_prompt, parse_json
 
 class TaskSpecifierAgent:
     def __init__(self, client):
         self.client = client
-        self.system_prompt = self._load_prompt()
-
-
-    def _load_prompt(self):
-        prompt_path = os.path.join(PROMPTS_DIR, 'example_prompt.txt')
-        with open(prompt_path, 'r') as f:
-            return f.read()
-        
+        self.system_prompt = load_prompt(AGENT_SPECIFIER_PROMPT)
 
     def specify_task(self, user_prompt):
         messages = [
@@ -22,12 +16,8 @@ class TaskSpecifierAgent:
 
         response = self.client.chat(messages)
         
+        response_parsed = parse_json(response)
+
+
         return response
-    
-        # try:
-        #     parsed_output = json.loads(response.strip())
-        #     return parsed_output
-        # except json.JSONDecodeError:
-        #     print("Warning: Could not parse the response as JSON.")
-        #     return {"raw_response": response}
         

@@ -10,7 +10,6 @@ class LocalLLMClient:
             raise RuntimeError("Ollama is not installed or is not in PATH")
         self.model = model
 
-    def chat(self, prompt):
-        messages = prompt
+    def chat(self, messages):
         reply = chat(model=self.model, messages=messages)
         return reply.message.content

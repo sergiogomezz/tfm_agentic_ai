@@ -9,13 +9,13 @@ USE_LOCAL_MODEL = True
 
 # For ollama client
 LOCAL_MODEL_NAME = "llama3"
-LOCAL_MAX_TOKENS = 512
-LOCAL_TEMPERATURE = 0.7
+
+# Improvement: select a different model for each agent.
+    # Mistral 32k context but smaller model size.
+    # Ollama3 8k context but larger model size.
 
 # For OpenAI
 OPENAI_MODEL_NAME = "gpt-4o-mini"
-OPENAI_MAX_TOKENS = 1024
-OPENAI_TEMPERATURE = 0.5
 
 # Agents settings
 ENABLE_DYNAMIC_AGENT_GENERATOR = True
@@ -25,3 +25,7 @@ MAX_AGENTS = 10
 ROOT_DIR = load_root_path()
 AGENTS_DIR = os.path.join(ROOT_DIR, "agents")
 PROMPTS_DIR = os.path.join(ROOT_DIR, "prompts")
+
+# Prompts
+AGENT_SPECIFIER_PROMPT = 'task_specifier_prompt.txt'
+AGENT_DIVIDER_PROMPT = 'task_divider_prompt.txt'
