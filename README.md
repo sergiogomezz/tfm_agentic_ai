@@ -1,4 +1,13 @@
+WORKFLOW:
+
+1. Task Specifier --> 2. Task Divider --> 3. Task Evaluator -->
+4. Orchestator (creator) --> 5. Prompt Generator --> 6. Gatherer (agents) -->
+7. Gatherer (subtasks) --> RESULT
+
+
 MEJORAS
+
+
 
 1. Incluir ejemplos en los prompt y técnicas CoT
 
@@ -9,4 +18,7 @@ FALLO:
     En este caso, debe solo pensar en: genera los pasos para la cheesecake --> devuelve la receta. y no generar la receta como las subtasks
 
 
-    2. Está demasiado enfocado en planificación de cosas. Sería interesante que pudiese responder a cualquier cosa.
+    2. Está demasiado enfocado en planificación de cosas. Sería interesante que pudiese responder a cualquier cosa, sea de planificación o no.
+    MEJORA: PONER UN BOOLEANO Y SI LA RESPUESTA SÓLO REQUIERE DAR UNA INFO, DEVOLVERLA Y PUNTO
+
+    3. MEJORAR EL EVALUADOR -- MEJORAR EL PROMPT

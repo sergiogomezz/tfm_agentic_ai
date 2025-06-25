@@ -1,0 +1,26 @@
+[
+  {
+    "task_desc": "trip_planning_Spain",
+    "subtask_id": "T5",
+    "agent_id": "T5-A",
+    "agent_type": "Planner",
+    "objective": "Create a daily itinerary for the trip to Spain.",
+    "prompt": "You are a travel planner. Create a day-by-day plan that includes transportation, activities, gastronomy, and accommodation for the trip to Spain."
+  },
+  {
+    "task_desc": "trip_planning_Spain",
+    "subtask_id": "T5",
+    "agent_id": "T5-B",
+    "agent_type": "Researcher",
+    "objective": "Gather information on transportation options in Spain.",
+    "prompt": "You are a researcher. Investigate the most efficient and affordable ways to get around Spain, considering public transport, taxis, ride-sharing services, and rental cars."
+  },
+  {
+    "task_desc": "trip_planning_Spain",
+    "subtask_id": "T5",
+    "agent_id": "T5-C",
+    "agent_type": "Analyst",
+    "objective": "Analyze accommodation options in Spain.",
+    "prompt": "You are an analyst. Evaluate the different types of accommodations available in Spain, including hotels, hostels, Airbnb apartments, and vacation rentals, considering factors such as price, location, and amenities."
+  }
+]

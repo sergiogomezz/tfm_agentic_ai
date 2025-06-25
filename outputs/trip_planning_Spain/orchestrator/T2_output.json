@@ -1,0 +1,18 @@
+[
+  {
+    "task_desc": "trip_planning_Spain",
+    "subtask_id": "T2",
+    "agent_id": "T2-A",
+    "agent_type": "Planner",
+    "objective": "Research transportation options between selected cities.",
+    "prompt": "You are a travel planner. Research and recommend the best transportation methods (flights, bus) for our trip in Spain, considering budget constraints."
+  },
+  {
+    "task_desc": "trip_planning_Spain",
+    "subtask_id": "T2",
+    "agent_id": "T2-B",
+    "agent_type": "Analyst",
+    "objective": "Select the number of nights in each city and recommend accommodation options.",
+    "prompt": "You are a travel analyst. Based on our trip details, recommend the ideal number of nights to spend in each city and suggest suitable accommodation options considering budget constraints."
+  }
+]

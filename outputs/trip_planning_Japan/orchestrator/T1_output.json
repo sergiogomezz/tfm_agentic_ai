@@ -1,0 +1,18 @@
+[
+  {
+    "task_desc": "trip_planning_Japan",
+    "subtask_id": "T1",
+    "agent_id": "T1-A",
+    "agent_type": "Researcher",
+    "objective": "Identify major cities to visit in Japan and their significance.",
+    "prompt": "You are a travel researcher. Identify the top cities to visit in Japan, considering cultural and historical importance, and provide a brief description of each."
+  },
+  {
+    "task_desc": "trip_planning_Japan",
+    "subtask_id": "T1",
+    "agent_id": "T1-B",
+    "agent_type": "Planner",
+    "objective": "Recommend the most optimal itinerary for the 3-day trip.",
+    "prompt": "You are a travel planner. Based on the research, create a suggested itinerary for the 3-day trip to Japan, including the number of days spent in each city and recommended activities."
+  }
+]

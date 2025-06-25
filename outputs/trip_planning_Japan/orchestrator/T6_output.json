@@ -1,0 +1,34 @@
+[
+  {
+    "task_desc": "trip_planning_Japan",
+    "subtask_id": "T6",
+    "agent_id": "T6-A",
+    "agent_type": "Coder",
+    "objective": "Estimate the total cost of transportation for the trip.",
+    "prompt": "You are a coding expert. Write a script to calculate the total cost of transportation for the trip, including flights, trains, and other modes of transport."
+  },
+  {
+    "task_desc": "trip_planning_Japan",
+    "subtask_id": "T6",
+    "agent_id": "T6-B",
+    "agent_type": "Analyst",
+    "objective": "Estimate the total cost of accommodation for the trip.",
+    "prompt": "You are an analyst. Research and estimate the total cost of accommodation for the trip, including hotel stays and other arrangements."
+  },
+  {
+    "task_desc": "trip_planning_Japan",
+    "subtask_id": "T6",
+    "agent_id": "T6-C",
+    "agent_type": "Coder",
+    "objective": "Estimate the total cost of food and activities for the trip.",
+    "prompt": "You are a coding expert. Write a script to calculate the total cost of food and activities for the trip, including meals, attractions, and other experiences."
+  },
+  {
+    "task_desc": "trip_planning_Japan",
+    "subtask_id": "T6",
+    "agent_id": "T6-D",
+    "agent_type": "Planner",
+    "objective": "Adjust the plan to stay within the expected budget constraint.",
+    "prompt": "You are a planner. Review the estimated costs and adjust the trip plan if it exceeds the expected budget constraint by more than 10%. Provide recommendations for cost savings."
+  }
+]

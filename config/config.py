@@ -27,5 +27,7 @@ AGENTS_DIR = os.path.join(ROOT_DIR, "agents")
 PROMPTS_DIR = os.path.join(ROOT_DIR, "prompts")
 
 # Prompts
-AGENT_SPECIFIER_PROMPT = 'task_specifier_prompt.txt'
-AGENT_DIVIDER_PROMPT = 'task_divider_prompt.txt'
+AGENT_SPECIFIER_PROMPT = "task_specifier_prompt.txt"
+AGENT_DIVIDER_PROMPT = "task_divider_prompt.txt"
+AGENT_EVALUATOR_PROMPT = "task_evaluator_prompt.txt"
+AGENT_ORCHESTRATOR_PROMPT = "agent_orchestrator.txt"

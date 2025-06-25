@@ -1,0 +1,45 @@
+{
+  "task_desc": "trip_planning_Spain",
+  "subtasks": [
+    {
+      "id": "T1",
+      "title": "Select main cities",
+      "description": "Choose the main cities to visit in Spain over the 7-days period. Select the days of staying for each city.",
+      "depends_on": []
+    },
+    {
+      "id": "T2",
+      "title": "Plan transportation and accommodation",
+      "description": "Decide how to travel between the selected cities using the best transport method (e.g. flights, bus). Also select the number of nights in each city and select the accommodation. If the details include budget, adjust both transportation and accommodation to it.",
+      "depends_on": [
+        "T1"
+      ]
+    },
+    {
+      "id": "T3",
+      "title": "Choose activities and attractions",
+      "description": "Select local attraction, activities and cultural experiences for each region. Base your decisions on the user's preferences, if they apply.",
+      "depends_on": [
+        "T1"
+      ]
+    },
+    {
+      "id": "T4",
+      "title": "Suggest local gastronomy",
+      "description": "Recommend local dishes and culinary experiences for each region visited.",
+      "depends_on": [
+        "T1"
+      ]
+    },
+    {
+      "id": "T5",
+      "title": "Create daily itinerary",
+      "description": "Build a day-by-day travel plan that includes transportation, activities, gastronomy, and accommodation.",
+      "depends_on": [
+        "T2",
+        "T3",
+        "T4"
+      ]
+    }
+  ]
+}

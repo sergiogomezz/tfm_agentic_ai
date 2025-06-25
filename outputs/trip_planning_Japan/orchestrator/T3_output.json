@@ -1,0 +1,18 @@
+[
+  {
+    "task_desc": "trip_planning_Japan",
+    "subtask_id": "T3",
+    "agent_id": "T3-A",
+    "agent_type": "Researcher",
+    "objective": "Gather information on local attractions, activities, and cultural experiences for each region in Japan.",
+    "prompt": "You are a travel researcher. Find and compile relevant information about popular attractions, hidden gems, and cultural events in Japan, focusing on each region's unique character."
+  },
+  {
+    "task_desc": "trip_planning_Japan",
+    "subtask_id": "T3",
+    "agent_id": "T3-B",
+    "agent_type": "Analyzer",
+    "objective": "Analyze user preferences and match them with suitable activities and attractions for each region in Japan.",
+    "prompt": "You are a travel analyst. Review the user's preferences (if provided) and suggest personalized activities, attractions, and cultural experiences that align with their interests."
+  }
+]

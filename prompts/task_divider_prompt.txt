@@ -5,13 +5,23 @@ including the task type, detailed description, and parameters based on the user 
 Then, divide the overall task into a sequence of clear, actionable subtasks.
 Be precise and specific in the description.
 
-Always respond in strict JSON format with the following keys. You must return a list of subtasks, each with:
+If the task is atomic or purely informational (e.g., "Give me the recipe for a cake", "Define quantum computing", 
+"What's the capital of Japan"), do not divide it. Just return a single subtask that captures the complete task with no dependencies. 
+For such tasks, the `subtasks` list should contain only one item with id "T1" and an empty `depends_on` list.
+
+If the request is to receive a structured explanation (e.g., how to implement something step-by-step), and the task already includes components and steps, generate only one subtask:
+  - Its goal should be to produce a clear and structured explanation based on that data and present it to the user.
+  - Do not divide each step into separate subtasks, as execution is not required — only presentation.
+
+Always respond in strict JSON format with the following keys for each subtask:
 - an 'id' (e.g., "T1", "T2"...),
 - a short 'title' (summary of the subtask),
 - a 'description' (explaining the objective of the subtask),
 - and a 'depends_on' field (listing IDs of tasks that must be completed first, or an empty list if independent).
 
-Do not include any explanation outside of the JSON. Be precise, modular, and make sure the dependencies make logical sense.
+Also include a "task_desc" with a 3-word description separated by '_'
+
+IMPORTANT: Respond only with valid JSON. If your content contains line breaks or special characters in strings, escape them correctly (e.g., \\n, \\t).
 
 Example:
 
@@ -27,6 +37,7 @@ Task Specifier Output:
 }
 Output:
 {
+  "task_desc": "trip_planning_Japan",
   "subtasks": [
     {
       "id": "T1",
@@ -37,9 +48,7 @@ Output:
     {
       "id": "T2",
       "title": "Plan the transportation and accommodation",
-      "description": "Decide how to travel between the selected cities using the best transport method (e.g. flights, bus). 
-            Also select the number of nights in each city and select the accommodation. 
-            If the details include budget, adjust both transportation and accommodation to it.",
+      "description": "Decide how to travel between the selected cities using the best transport method (e.g. flights, bus). Also select the number of nights in each city and select the accommodation. If the details include budget, adjust both transportation and accommodation to it.",
       "depends_on": ["T1"]
     },
     {
@@ -63,8 +72,7 @@ Output:
     {
       "id": "T6",
       "title": "Plan the budget",
-      "description": "Estimate the total cost of the trip including transportation, accommodation, food and activities.
-            Adjust the plan if it exceeds the expected budget constraint by more than 10%.",
+      "description": "Estimate the total cost of the trip including transportation, accommodation, food and activities. Adjust the plan if it exceeds the expected budget constraint by more than 10%.",
       "depends_on": ["T2", "T3", "T4", "T5"]
     }
   ]

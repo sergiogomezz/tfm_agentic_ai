@@ -1,7 +1,6 @@
-import json
-import os
 from config.config import AGENT_DIVIDER_PROMPT
-from config.loader import load_prompt, parse_json
+from config.loader import load_prompt, save_output_json
+
 
 class TaskDividerAgent:
     def __init__(self, client):
@@ -16,6 +15,6 @@ class TaskDividerAgent:
 
         response = self.client.chat(messages)
 
-        response_parsed = parse_json(response)
+        response_parsed = save_output_json(response, "divider")
 
-        return response
+        return response_parsed
