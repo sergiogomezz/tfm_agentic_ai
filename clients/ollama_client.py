@@ -1,7 +1,5 @@
-
 import subprocess, json, textwrap, os, shutil
 from config import config as cfg
-import ollama
 from ollama import chat
 
 class LocalLLMClient:

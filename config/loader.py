@@ -62,25 +62,43 @@ def save_output_json(response, agent_type):
 
 
 def save_output_json_orchestrator(response):
-    print("1")
     root_dir = load_root_path()
     outputs_dir = os.path.join(root_dir, "outputs")
     os.makedirs(outputs_dir, exist_ok=True)
 
-    print("2")
     response_parsed = parse_json(response)
     first_item = response_parsed[0]
     task_desc = first_item.get("task_desc", "unnamed_task")
-    task_dir = os.path.join(outputs_dir, task_desc, "orchestrator")
-    os.makedirs(task_dir, exist_ok=True)
+    dir_orchestrator = os.path.join(outputs_dir, task_desc, "orchestrator")
+    os.makedirs(dir_orchestrator, exist_ok=True)
     
-    print("3")
     subtask_id = first_item.get("subtask_id", "unknown_subtask")
-    output_path = os.path.join(task_dir, f"{subtask_id}_output.json")
-
-    print("4")
+    output_path = os.path.join(dir_orchestrator, f"{subtask_id}_output.json")
 
     with open(output_path, "w") as f:
         json.dump(response_parsed, f, indent=2)
 
-    return response_parsed
+    return dir_orchestrator
+
+
+def save_output_json_agents(response):
+    root_dir = load_root_path()
+    outputs_dir = os.path.join(root_dir, "outputs")
+    os.makedirs(outputs_dir, exist_ok=True)
+
+    response_parsed = parse_json(response)
+    task_desc = response_parsed.get("task_desc", "unnamed_task")
+    dir_work_agents = os.path.join(outputs_dir, task_desc, "work_agents")
+    os.makedirs(dir_work_agents, exist_ok=True)
+    
+    subtask_id = response_parsed.get("subtask_id", "unknown_subtask")
+    subtask_path = os.path.join(dir_work_agents, subtask_id)
+    os.makedirs(subtask_path, exist_ok=True)
+
+    agent_id = response_parsed.get("agent_id", "unknown_agent")
+    output_path = os.path.join(subtask_path, f"{agent_id}_output.json")
+
+    with open(output_path, "w") as f:
+        json.dump(response_parsed, f, indent=2)
+
+    return dir_work_agents

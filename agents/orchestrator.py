@@ -10,8 +10,7 @@ class OrchestratorAgent:
         self.system_prompt = load_prompt(AGENT_ORCHESTRATOR_PROMPT)
         self.task_id = task_id
 
-    def create_agents(self, subtask: dict):
-        subtask_id = subtask["id"]
+    def design_agents(self, subtask: dict):
         prompt = json.dumps({
             "task_desc": self.task_id,
             "subtask_id": subtask["id"],
@@ -26,6 +25,6 @@ class OrchestratorAgent:
 
         response = self.client.chat(messages)
 
-        response_parsed = save_output_json_orchestrator(response)
+        orchestrator_path = save_output_json_orchestrator(response)
 
-        return response_parsed
+        return orchestrator_path

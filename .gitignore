@@ -9,11 +9,11 @@ __pycache__/
 dist/
 build/
 
-# uv (entorno virtual si se usa local)
+# uv (virtual environment if used locally)
 .venv/
 .uv/
 
-# Dependencias generadas (uv puede crear archivos de lock)
+# Generated dependencies (uv can create lock files)
 uv.lock
 poetry.lock
 Pipfile.lock
@@ -21,22 +21,25 @@ Pipfile.lock
 # VS Code
 .vscode/
 
-# Archivos de configuración personal
+# Personal configuration files
 .env
 *.env
 *.env.*
 
-# Archivos sensibles (como claves API)
+# Sensitive files (such as API keys)
 keys.json
 secrets.json
 
-# Archivos temporales
+# Temporary files
 *.log
 *.tmp
 *.bak
 *.swp
 *.swo
 
-# Mac / sistema operativo
+# Mac / OS
 .DS_Store
 Thumbs.db
+
+# Outputs directory
+outputs/
