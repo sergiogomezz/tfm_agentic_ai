@@ -62,18 +62,6 @@ Output:
       "title": "Suggest local gastronomy",
       "description": "Recommend local dishes and culinary experiences for each region visited.",
       "depends_on": ["T1"]
-    },
-    {
-      "id": "T5",
-      "title": "Create daily itinerary",
-      "description": "Build a day-by-day travel plan that includes transportation, activities and gastronomy.",
-      "depends_on": ["T2", "T3", "T4"]
-    },
-    {
-      "id": "T6",
-      "title": "Plan the budget",
-      "description": "Estimate the total cost of the trip including transportation, accommodation, food and activities. Adjust the plan if it exceeds the expected budget constraint by more than 10%.",
-      "depends_on": ["T2", "T3", "T4", "T5"]
     }
   ]
 }

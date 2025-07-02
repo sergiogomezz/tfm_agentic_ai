@@ -14,7 +14,8 @@ class BaseWorkingAgent:
     def work(self):
         sys_prompt = f"""You are a {self.agent_type} agent. Your goal is to {self.prompt}.
             The context from previous subtasks that you MUST take into account is {self.context}.
-            You must respond in strict valid JSON format with the following structure:
+            DO NOT include any explanation or comments. Output ONLY the JSON object.
+            You must respond ALWAYS in strict valid JSON format with the following structure:
 
             {{
                 "task_desc": "{self.task_id}",
@@ -30,6 +31,10 @@ class BaseWorkingAgent:
 
         response = self.client.chat(messages)
 
-        agents_path = save_output_json_agents(response)
-
-        return agents_path
+        try:
+            agents_path = save_output_json_agents(response)
+            return agents_path
+        except ValueError as e:
+            print(f"[ERROR] Agent {self.agent_id} returned invalid JSON: {e}")
+            print(f"[DEBUG] Raw response:\n{response}")
+            return None

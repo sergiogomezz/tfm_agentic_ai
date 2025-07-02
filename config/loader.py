@@ -101,4 +101,4 @@ def save_output_json_agents(response):
     with open(output_path, "w") as f:
         json.dump(response_parsed, f, indent=2)
 
-    return dir_work_agents
+    return output_path

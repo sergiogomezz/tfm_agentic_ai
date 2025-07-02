@@ -10,6 +10,7 @@ from agents.task_divider import TaskDividerAgent
 from agents.task_evaluator import TaskEvaluatorAgent
 from agents.orchestrator import OrchestratorAgent
 from agents.base_working_agent import BaseWorkingAgent
+from agents.subtasks_gatherer import SubtasksGatherer
 
 import os
 
@@ -59,15 +60,12 @@ def main():
         completed_subtasks = set()
 
         while pending_subtasks:
-            for subtask in pending_subtasks:
+            for subtask in pending_subtasks[:]:
                 subtask_id = subtask['id']
                 depends_on = subtask['depends_on']
 
                 if all(dep in completed_subtasks for dep in depends_on):
-                    agents_file_path = [os.path.join(orchestrator_path, file)
-                        for file in os.listdir(orchestrator_path)
-                        if file.endswith(".json")
-                    ][0]
+                    agents_file_path = os.path.join(orchestrator_path, f"{subtask_id}_output.json")
 
                     agents = load_json(agents_file_path)
 
@@ -91,7 +89,7 @@ def main():
                         )
 
                         agent_path = working_agent.work()
-                        agent_outputs[subtask_id] = agent_path
+                        agent_outputs[agent['agent_id']] = agent_path
                         completed_subtasks.add(subtask_id)
 
                     pending_subtasks.remove(subtask)
@@ -100,7 +98,15 @@ def main():
                     missing = [dep for dep in depends_on if dep not in completed_subtasks]
                     print(f"Subtask {subtask_id} waiting on: {missing}")
 
+        
+        subtask_gatherer_agent = SubtasksGatherer(client=client)
+
+        # check if the logic is OK like that or it's better to add args in function call
+        final_user_output = subtask_gatherer_agent.gather_subtasks()
+
         print("\nAgents have finished their work! ENJOY THE RESULT 😎\n")
+
+        print(f"AI's final answer: {final_user_output}")
     
     except Exception as e:
         print(f"\nAgents were not too accurate this time 😔\nError: {e}")
