@@ -1,10 +1,9 @@
-Welcome to Elvex!!
+Welcome to Elvex! 🧠 The reasoning LLM Agentic AI for high-level planning tasks.
 
 WORKFLOW:
 
 1. Task Specifier --> 2. Task Divider --> 3. Task Evaluator -->
-4. Orchestator (creator) --> 5. Prompt Generator --> 6. Gatherer (agents) -->
-7. Gatherer (subtasks) --> RESULT
+4. Orchestator (creator) --> 5. Worker Agents (auto-created) --> 6. Gatherer (agents) --> RESULT
 
 
 MEJORAS

@@ -54,7 +54,7 @@ def main():
             orchestrator_path = orchestrator.design_agents(subtask)
 
 
-        # Creating the dependencies & context for working agents
+        # Creating the dependencies & context for working agents (5)
         agent_outputs = {}
         pending_subtasks = subtasks[:]
         completed_subtasks = set()
@@ -99,12 +99,10 @@ def main():
                     print(f"Subtask {subtask_id} waiting on: {missing}")
 
         
+        # Invoke (6) Agent Subtasks Gatherer
+
         subtask_gatherer_agent = SubtasksGatherer(client=client)
-
-        # check if the logic is OK like that or it's better to add args in function call
-        final_user_output = subtask_gatherer_agent.gather_subtasks()
-
-        print("\nAgents have finished their work! ENJOY THE RESULT 😎\n")
+        final_user_output = subtask_gatherer_agent.gather_subtasks(task_id)
 
         print(f"AI's final answer: {final_user_output}")
     
