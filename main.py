@@ -100,7 +100,6 @@ def main():
 
         
         # Invoke (6) Agent Subtasks Gatherer
-
         subtask_gatherer_agent = SubtasksGatherer(client=client)
         final_user_output = subtask_gatherer_agent.gather_subtasks(task_id)
 

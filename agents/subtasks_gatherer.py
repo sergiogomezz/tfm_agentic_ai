@@ -12,7 +12,7 @@ class SubtasksGatherer():
         self.system_prompt = load_prompt(AGENT_SUBTASK_GATHERER)
 
     def gather_subtasks(self, task_id):
-        user_message = self.get_user_input_messages(task_id)
+        user_message = self.get_user_subtasks(task_id)
         messages = [
             {"role": "system", "content": self.system_prompt},
             {"role": "user", "content": user_message}
