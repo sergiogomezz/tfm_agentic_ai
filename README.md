@@ -33,3 +33,10 @@ Elvex offers a **fully modular, plug-and-play** solution that adapts to the task
 6. Gatherer (Integrates responses from all agents)
         ↓
            ✅ Final Result
+```
+
+## 🪛 TECHNOLOGY USED
+- **Python**
+- **LangGraph**
+- **Ollama**
+- **OpenAI API**
