@@ -1,7 +1,6 @@
 # 🤖 Final Master's Project – MSc in Artificial Intelligence  
 **Title:** Elvex: Autonomous Architecture for LLM Agent Generation and Coordination  
 **Institution:** Universidad Internacional de La Rioja (UNIR)  
-**Supervisor:** Alexandre Pérez Reina  
 **Presented:** July 2025
 
 ## 📘 Overview
@@ -40,3 +39,17 @@ Elvex offers a **fully modular, plug-and-play** solution that adapts to the task
 - **LangGraph**
 - **Ollama**
 - **OpenAI API**
+
+## ⚙️ SETUP
+
+To run Elvex locally, you need [Ollama](https://ollama.com) installed, or a valid OpenAI API.
+
+1. **Install Ollama**  
+   Follow the instructions at: https://ollama.com/download
+
+2. **Download the LLaMA 3 model**  
+   ```bash
+   ollama pull llama3
+   ```
+3. Configure the model in the config file
+
