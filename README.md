@@ -53,3 +53,4 @@ To run Elvex locally, you need [Ollama](https://ollama.com) installed, or a vali
    ```
 3. Configure the model in the config file
 
+🛑 License: All Rights Reserved – This work may not be used or reproduced without permission.
