@@ -29,12 +29,14 @@ class BaseWorkingAgent:
             {"role": "user", "content": self.objective}
         ]
 
-        response = self.client.chat(messages)
+        # Gestiona la persistencia. Si falla el formato de salida, reejecuta el agente.
 
-        try:
-            agents_path = save_output_json_agents(response)
-            return agents_path
-        except ValueError as e:
-            print(f"[ERROR] Agent {self.agent_id} returned invalid JSON: {e}")
-            print(f"[DEBUG] Raw response:\n{response}")
-            return None
+        max_retries = 2
+        for _ in range(max_retries + 1):
+            response = self.client.chat(messages)
+            try:
+                agents_path = save_output_json_agents(response)
+                return agents_path
+            except ValueError:
+                continue
+        return None

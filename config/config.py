@@ -8,7 +8,7 @@ PROJECT_NAME = "TFM_Agentic_AI"
 USE_LOCAL_MODEL = True
 
 # For ollama client
-LOCAL_MODEL_NAME = "llama3"
+LOCAL_MODEL_NAME = "gpt-oss:20b"
 
 # Improvement: select a different model for each agent.
     # Mistral 32k context but smaller model size.

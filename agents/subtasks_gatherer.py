@@ -22,6 +22,27 @@ class SubtasksGatherer():
 
 
     def get_user_subtasks(self, task_id):
+        def json_to_text(data, indent=0):
+            lines = []
+            prefix = "  " * indent + "- "
+            if isinstance(data, dict):
+                for key, value in data.items():
+                    if isinstance(value, (dict, list)):
+                        lines.append("  " * indent + f"{key}:")
+                        lines.extend(json_to_text(value, indent + 1))
+                    else:
+                        lines.append(prefix + f"{key}: {value}")
+            elif isinstance(data, list):
+                for item in data:
+                    if isinstance(item, (dict, list)):
+                        lines.append(prefix.rstrip() + ":")
+                        lines.extend(json_to_text(item, indent + 1))
+                    else:
+                        lines.append(prefix + str(item))
+            else:
+                lines.append(prefix + str(data))
+            return lines
+
         root_path = load_root_path()
         base_path = f"{root_path}/outputs/{task_id}/work_agents"
         messages = []
@@ -33,8 +54,8 @@ class SubtasksGatherer():
                     with open(os.path.join(agent_path, json_files[0]), "r") as f:
                         data = json.load(f)
                         answer = data.get("answer", "")
-                        if isinstance(answer, dict):
-                            formatted_answer = json.dumps(answer, indent=2, ensure_ascii=False)
+                        if isinstance(answer, dict) or isinstance(answer, list):
+                            formatted_answer = "\n".join(json_to_text(answer))
                         else:
                             formatted_answer = str(answer)
                         messages.append(f"Subtask {agent_folder}:\n{formatted_answer}")

@@ -97,7 +97,7 @@ def main():
                 else:
                     missing = [dep for dep in depends_on if dep not in completed_subtasks]
                     print(f"Subtask {subtask_id} waiting on: {missing}")
-
+        
         
         # Invoke (6) Agent Subtasks Gatherer
         subtask_gatherer_agent = SubtasksGatherer(client=client)
