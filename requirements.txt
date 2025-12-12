@@ -26,3 +26,27 @@ ipykernel
 pandas
 numpy
 scikit-learn
+
+# Hugging Face / Transformers ecosystem
+torch
+transformers
+tokenizers
+datasets
+evaluate
+sentencepiece
+safetensors
+huggingface-hub
+
+# Fine-tuning / RLHF / parameter-efficient training
+peft
+trl
+
+# Quantization / memory-efficient inference (may need CUDA/tooling)
+bitsandbytes
+xformers
+
+# Optimization & inference tooling
+optimum
+
+# Useful extras
+sentence-transformers
