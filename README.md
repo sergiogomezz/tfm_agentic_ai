@@ -3,6 +3,9 @@
 **Institution:** Universidad Internacional de La Rioja (UNIR)  
 **Presented:** July 2025
 
+> This project has evolved into [Elvex v2](https://github.com/sergiogomezz/elvex-v2) 
+> with a cleaner architecture, multi-provider support, and improved agent orchestration.
+
 ## 📘 Overview
 
 This Master's Thesis presents **Elvex**, an autonomous multi-agent architecture designed to dynamically generate and coordinate **specialized LLM-based agents** to solve complex tasks without prior configuration. The system interprets high-level user queries, decomposes them, and orchestrates collaboration between auto-created agents to deliver coherent and high-quality results.
